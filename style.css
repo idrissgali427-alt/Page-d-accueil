@@ -1,0 +1,265 @@
+/*
+ * NOUVEAU: Styles pour l'en-tête et le menu GALI
+ *
+ * Ces règles modifient le conteneur de l'en-tête pour utiliser flexbox,
+ * ce qui permet de positionner le menu GALI à gauche et le reste du contenu à droite.
+ * Les styles du dropdown GALI sont également définis ici.
+ */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent;
+}
+
+.gali-nav {
+    margin-right: 20px;
+}
+
+.gali-nav .dropdown {
+    display: inline-block;
+}
+
+.gali-nav .dropbtn {
+    /* Bouton GALI en vert foncé */
+    background-color: #1a5e20;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.gali-nav .dropbtn:hover {
+    background-color: #0e3b12; /* Vert encore plus foncé au survol */
+}
+
+.gali-nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.gali-nav .dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.gali-nav .dropdown-content a:hover {
+    background-color: #e6f0e6;
+}
+
+.gali-nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*
+ * VOS STYLES EXISTANTS CI-DESSOUS AVEC DES AJUSTEMENTS
+ */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: #f8f8f8; /* Un gris très clair, visible si l'image ne charge pas */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    /* NOUVEAU: Styles pour l'image d'arrière-plan */
+    background-image: url('image2.png'); /* Chemin vers votre image */
+    background-size: cover; /* Couvre toute la surface, peut couper l'image */
+    background-position: center center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    background-attachment: fixed; /* L'image reste fixe lors du défilement */
+}
+
+@keyframes shiny-glow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.cylindrical-header {
+    background: linear-gradient(135deg, #e9f5fd, #dbe9f7, #e9f5fd); /* Nuances de bleu clair */
+    background-size: 200% 200%;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+    transform: translateY(20px);
+    transition: box-shadow 0.3s ease;
+}
+
+.cylindrical-header:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    animation: shiny-glow 2s ease-in-out infinite;
+}
+
+h1 {
+    color: #2c3e50; /* Un bleu profond */
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+@keyframes pulse-icon {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.header-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.9em;
+    color: #666;
+    font-weight: normal;
+}
+
+.header-info i {
+    margin-right: 5px;
+    color: #388e3c; /* Icônes en vert */
+    animation: pulse-icon 2s ease-in-out infinite;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: -10px auto 20px auto;
+    flex-grow: 1;
+}
+
+@media (max-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@keyframes card-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.85); /* Fond blanc semi-transparent */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre de carte en gris */
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity: 0;
+    animation: card-fade-in 0.8s forwards;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+.card:nth-child(4) { animation-delay: 0.8s; }
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Ombre au survol en gris */
+}
+
+.card h2 {
+    color: #2c3e50; /* Titres de cartes en bleu profond */
+    margin-top: 0;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.dropdown {
+    position: relative;
+    display: block;
+    margin-top: 5px;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px #1a5e20, 0 0 10px #1a5e20; } /* Effet de lueur en vert */
+    50% { box-shadow: 0 0 10px #1a5e20, 0 0 20px #1a5e20; }
+    100% { box-shadow: 0 0 5px #1a5e20, 0 0 10px #1a5e20; }
+}
+
+.dropbtn {
+    background-color: #388e3c; /* Boutons de dropdown en vert */
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s;
+    animation: glow 1.5s infinite alternate;
+}
+
+.dropbtn:hover {
+    background-color: #2e7d32; /* Vert plus foncé au survol */
+    animation: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Ombre en gris */
+    z-index: 1;
+    border-radius: 5px;
+    margin-top: 5px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a i {
+    margin-right: 10px;
+    color: #1a5e20; /* Icônes des liens en vert foncé */
+}
+
+.dropdown-content a:hover {
+    background-color: #e6f0e6;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    display: none;
+}
