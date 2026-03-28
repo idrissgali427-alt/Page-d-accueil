@@ -3,131 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GaliBusiness - Tableau de Bord</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>GaliBusiness - Vision & Foi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #d4af37;
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Barre de Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Section Hero */
+        .hero {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 5% 60px;
+            text-align: center;
+        }
+
+        .content-card {
+            max-width: 900px;
+            padding: 4rem 2rem;
+            background: var(--glass);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 1.5s ease;
+        }
+
+        .slogan {
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            background: linear-gradient(to bottom, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .main-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        /* Bouton Central */
+        .btn-gold {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            border: 2px solid var(--gold);
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold);
+            color: var(--primary);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
 <body>
-    <header class="card-header-top">
-        <nav class="gali-nav">
-            <div class="dropdown">
-                <button class="dropbtn"><i class="fas fa-server"></i> Serveur</button>
-                <div class="dropdown-content">
-                    <a href="https://console.upstash.com/redis?teamid=0"><i class="fas fa-code-branch"></i> Vercel</a>
-                    <a href="https://console.upstash.com/redis/130f806b-50c7-4af8-9f0d-dd24283d36da?teamid=0"><i class="fas fa-code-branch"></i>upstash</a>
-                    <a href="https://vercel.com/new"><i class="fas fa-code-branch"></i> Vercel</a>
-                    <a href="https://vercel.com/idriss2"><i class="fas fa-code-branch"></i> Vercelbord</a>
-                    <a href="https://github.com/dashboard"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://app.netlify.com/signup/start"><i class="fas fa-globe"></i> Netlify</a>
-                    <a href="https://mail.google.com/mail/u/0/#inbox"><i class="fas fa-envelope"></i> E-mail</a>
-                    <a href="https://cloud.mongodb.com/v2/68e0f4c9967deb2ba867bb76#/overview?automateSecurity=true"><i class="fas fa-envelope"></i>mongoose atlas</a>
-                    
-                    
-                    <a href="https://cloud.mongodb.com/v2/68e0f4c9967deb2ba867bb76#/overview?automateSecurity=true"><i class="fas fa-code-branch"></i>mongodb</a>
-                    <a href="https://congobet.net/myaccount/history"><i class="fas fa-code-branch"></i>congobet</a>
-                    <a href="https://congobet.net/sports"><i class="fas fa-code-branch"></i>congobet1</a>
-                    <a href="https://meet.google.com/landing?hs=197&authuser=0&pli=1"><i class="fas fa-video"></i> Google Meet</a>
 
-                    <a href="https://supabase.com/dashboard/org/cwfnmbcqxubkrrsnarpo"><i class="fas fa-video"></i>supabase</a>
+    <nav>
+        <a href="https://page-d-accueil-almh.vercel.app/" class="logo">GALIBUSINESS</a>
+        <ul class="nav-links">
+            <li><a href="https://page-d-accueil-almh.vercel.app/">Accueil</a></li>
+            <li><a href="#">Vision</a></li>
+            <li><a href="#">Héritage</a></li>
+        </ul>
+    </nav>
 
-                </div>
-            </div>
-        </nav>
-        
-        <div class="cylindrical-header">
-            <div class="header-content-box">
-                <h1>GaliBusiness <i class="fas fa-briefcase"></i></h1>
-                <div class="header-info">
-                    <span id="date-time"><i class="far fa-calendar-alt"></i> Chargement...</span>
-                    <span id="weather-info"><i class="fas fa-cloud-sun"></i> Chargement...</span>
-                </div>
-            </div>
+    <section class="hero">
+        <div class="content-card">
+            <div class="slogan">GaliBusiness : Notre vision, Notre Foi pour devenir grand, puissant, Éternel</div>
+            
+            <h1>Une Empreinte Éternelle</h1>
+            
+            <p class="main-text">
+                Par la volonté d'Idriss Gali nous nous élevons, nous devenons grands. 
+                Par son nom nous œuvrons et devenons puissants. 
+                Que la bénédiction et la protection d'Idriss Gali soient notre bouclier, 
+                assurant notre gloire et notre empreinte éternelle.
+            </p>
+
+            <a href="https://page-d-accueil-almh.vercel.app/" class="btn-gold" id="actionBtn">Entrer dans la Gloire</a>
         </div>
-    </header>
+    </section>
 
-    <main class="grid-container">
-        <section class="card payroll-card dropdown-section">
-            <h2><i class="fas fa-dollar-sign"></i> Logiciel de Paie</h2>
-            <div class="dropdown">
-                <button class="dropbtn">Suivi de Travail d'Employé</button>
-                <div class="dropdown-content">
-                    <a href="https://employer-henna.vercel.app"><i class="fas fa-users"></i> Employés</a>
-                    <a href="https://carte-de-service.vercel.app/"><i class="fas fa-clock"></i> Carte de Service et Employe du temps</a>
-                    <a href="https://heuresupp.vercel.app"><i class="fas fa-hourglass-half"></i> Heure Supplémentaire</a>
-                    <a href="https://logiciel-de-paie.vercel.app/"><i class="fas fa-calculator"></i> Logiciel de Paie</a>
-                    <a href="https://investissement-sportifs-paie.vercel.app/"><i class="fas fa-running"></i> Investissement Sportifs Paie</a>
-                </div>
-            </div>
-        </section>
+    <script>
+        // Logique de redirection et d'interaction
+        document.getElementById('actionBtn').addEventListener('click', function(e) {
+            console.log("Navigation vers l'espace GaliBusiness...");
+        });
 
-        <section class="card ceo-card dropdown-section">
-            <h2><i class="fas fa-star"></i> Logiciel PDG</h2>
-            <div class="dropdown">
-                <button class="dropbtn">PDG</button>
-                <div class="dropdown-content">
-                    <a href="https://directeur-d-achat.vercel.app"><i class="fas fa-shopping-cart"></i> Achats</a>
-                    <a href="https://galibusiness-web.vercel.app"><i class="fas fa-balance-scale"></i> Comptabilité PDG</a>
-                    <a href="https://suivi-des-benefices.vercel.app"><i class="fas fa-chart-line"></i> Suivi des Bénéfices</a>
-                    <a href="https://idrissgali427-alt.github.io/Portefeuil/"><i class="fas fa-wallet"></i> Portefeuille</a>
-                    <a href="https://ornate-cannoli-e26e70.netlify.app/"><i class="fas fa-money-check-alt"></i> Finance</a>
-                    <a href="https://pdgtransport.vercel.app"><i class="fas fa-truck"></i> PDG Transport</a>
-       
-
-                     <a href="https://page-d-accueil-savon1.vercel.app/"><i class="fas fa-truck"></i>Page d'accueil savon1</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="card client-card dropdown-section">
-            <h2><i class="fas fa-headset"></i> Service Clientèle</h2>
-            <div class="dropdown">
-                <button class="dropbtn">Gestion des Clients</button>
-                <div class="dropdown-content">
-                    <a href="https://suivi-des-commande.vercel.app"><i class="fas fa-box-open"></i> Suivi des Commandes</a>
-                    <a href="https://clientel.vercel.app/"><i class="fas fa-address-book"></i> Clientèle</a>
-                    <a href="https://standart-pro.vercel.app/"><i class="fas fa-medal"></i> Standard Pro</a>
-                    <a href="savonnerie1.vercel.app"><i class="fas fa-comment-dots"></i>Savonnerie1</a>
-                     <a href="https://caisse-a.vercel.app"><i class="fas fa-chart-bar"></i>Caisse1</a>
-                    <a href="https://caisse-snowy.vercel.app"><i class="fas fa-chart-bar"></i>Caisse2</a>
-                    
-                    
-                </div>
-            </div>
-        </section>
-
-        <section class="card divers-card dropdown-section">
-            <h2><i class="fas fa-cogs"></i> Divers</h2>
-            <div class="dropdown">
-                <button class="dropbtn">Suivi des Projets</button>
-                <div class="dropdown-content">
-                     <a href="https://blocs-notes.vercel.app/"><i class="fas fa-comment-dots"></i>Bloc note</a>
-                    <a href="https://fiche-technique-pdg.vercel.app/"><i class="fas fa-scroll"></i> Fiche de Travail</a>
-
-
-
-                    <a href="https://idrissgali427-alt.github.io/presse/"><i class="fas fa-comment-dots"></i>revue de Presse</a>
-                    <a href="https://idrissgali427-alt.github.io/calculatorsavon/"><i class="fas fa-comment-dots"></i>Calculator savon</a>
-                    <a href="https://suivie-de-finance-personnelle.vercel.app/#"><i class="fas fa-comment-dots"></i>Suivie Financiere Personnelle</a>
-                    <a href="https://blocs-notes.vercel.app/"><i class="fas fa-comment-dots"></i>Bloc note</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer></footer>
-
-    <script src="script.js"></script>
+        // Animation subtile au survol du texte
+        const mainText = document.querySelector('.main-text');
+        mainText.addEventListener('mouseover', () => {
+            mainText.style.color = '#f8fafc';
+            mainText.style.transition = '0.5s';
+        });
+    </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
